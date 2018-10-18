@@ -11,43 +11,43 @@ import AuthGuard from './auth-guard'
 
 Vue.use(Router)
 export default new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'Home',
-      component: Home
-    },
-    {
-      path: '/meetups',
-      name: 'Meetups',
-      component: Meetups
-    },
-    {
-      path: '/meetup/new',
-      name: 'CreateMeetups',
-      component: CreateMeetups,
-      beforeEnter: AuthGuard
-    },
-    {
-      path: '/meetups/:id',
-      name: 'Meetup',
-      component: Meetup,
-      props: true
-    },
-    {
-      path: '/profile',
-      name: 'Profile',
-      component: Profile
-    },
-    {
-      path: '/signup',
-      name: 'Signup',
-      component: Signup
-    },
-    {
-      path: '/signin',
-      name: 'Signin',
-      component: Signin
-    }
-  ]
+    routes: [
+        {
+            path: '/',
+            name: 'Home',
+            component: Home
+        },
+        {
+            path: '/meetups',
+            name: 'Meetups',
+            component: Meetups
+        },
+        {
+            path: '/meetup/new',
+            name: 'CreateMeetups',
+            component: CreateMeetups,
+            beforeEnter: AuthGuard
+        },
+        {
+            path: '/meetups/:id',
+            name: 'Meetup',
+            component: Meetup,
+            props: true
+        },
+        {
+            path: '/profile',
+            name: 'Profile',
+            component: Profile
+        },
+        {
+            path: '/signup',
+            name: 'Signup',
+            component: Signup
+        },
+        {
+            path: '/signin',
+            name: 'Signin',
+            component: Signin
+        }
+    ]
 })
