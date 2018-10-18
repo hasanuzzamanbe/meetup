@@ -184,7 +184,8 @@ export const store = new Vuex.Store({
                         commit('setLoading', false)
                         const newUser = {
                             id: user.user.uid,
-                            registeredMeetups: []
+                            registeredMeetups: [],
+                            displayName: user.user.displayName
                         }
                         commit('setUser', newUser)
                     }
@@ -196,26 +197,20 @@ export const store = new Vuex.Store({
                     }
                 )
         },
-        userProfileData (name, payload) {
-            var Username = payload.value
+        userProfileData ({state}, Username) {
             var user = firebase.auth().currentUser
             user.updateProfile({
-                // displayName: "Jane Q. User",
-                // photoURL: "https://example.com/jane-q-user/profile.jpg"
                 displayName: Username
-
             })
-                .then(function () {
-                    console.log('updated')
+                .then(() => {
+                    state.user.displayName = Username
                 })
                 .catch(function (error) {
                     console.log(error)
                 })
-            console.log(name)
-            console.log(payload.value)
         },
         autoSignIn ({commit}, payload) {
-            commit('setUser', {id: payload.uid, registeredMeetups: []})
+            commit('setUser', {id: payload.uid, registeredMeetups: [], displayName: payload.displayName})
         },
         logout ({commit}) {
             firebase.auth().signOut()

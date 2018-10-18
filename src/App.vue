@@ -49,8 +49,6 @@
     </v-app>
 </template>
 <script>
-    import * as firebase from 'firebase'
-
     export default {
         data () {
             return {
@@ -68,7 +66,7 @@
                     menuItems = [
                         {icon: 'supervisor_account', title: 'View Meetups', link: '/meetups'},
                         {icon: 'room', title: 'Organize Meetup', link: '/meetup/new'},
-                        {icon: 'person', title: this.profile, link: '/profile'}
+                        {icon: 'person', title: this.username, link: '/profile'}
                     ]
                 }
                 return menuItems
@@ -76,9 +74,8 @@
             userIsAuthenticated () {
                 return this.$store.getters.user !== null && this.$store.getters.user !== undefined
             },
-            UserName () {
-                var user = firebase.auth().currentUser
-                this.profile = user.providerData[0].displayName
+            username () {
+                return this.$store.getters.user.displayName
             }
         },
         methods: {

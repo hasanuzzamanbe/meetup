@@ -48,12 +48,11 @@
                 Username: '',
                 profile: '',
                 inputName: false
-
             }
         },
         methods: {
-            updateUserProfile (name, payload) {
-                this.$store.dispatch('userProfileData', name)
+            updateUserProfile () {
+                this.$store.dispatch('userProfileData', this.Username)
                 this.inputName = false
             },
             editUserName (Username) {
