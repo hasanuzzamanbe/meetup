@@ -49,6 +49,7 @@
     </v-app>
 </template>
 <script>
+import * as firebase from 'firebase'
     export default {
         data () {
             return {
@@ -79,9 +80,23 @@
             }
         },
         methods: {
-            onLogout () {
-                this.$store.dispatch('logout')
+          onLogout () {
+            this.$store.dispatch('logout')
+          },
+          UserName () {
+            if (this.$store.getters.user !== null && this.$store.getters.user !== undefined) {
+              var user = firebase.auth().currentUser
+              return this.profile = user.providerData[0].displayName
             }
+          }
+        },
+        created: function () {
+            this.UserName()
+        },
+        updated: function () {
+            this.$nextTick(function () {
+              this.UserName()
+          })
         },
         name: 'App'
     }
