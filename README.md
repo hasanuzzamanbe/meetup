@@ -1,6 +1,18 @@
 # meetup
 
 > A Vue.js project
+This is a simple Meet up site by Vue Js.
+where user can Do a couple of things:
+   1. create a new account,
+   2. Sign up from His/Her account.
+   3. Create Meet up with image.
+   4. Manage his/her meetup (Edit/Delete)
+
+
+Backend Use for this project:
+  1. Firebase
+ 
+ 
 
 ## Build Setup
 
