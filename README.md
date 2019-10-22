@@ -1,4 +1,4 @@
-# meetup
+# meetup (Live project on https://meetup01.netlify.com)
 
 > A Vue.js project
 This is a simple Meet up site by Vue Js.
