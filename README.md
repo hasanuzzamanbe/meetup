@@ -2,6 +2,7 @@
 
 > A Vue.js project
 This is a simple Meet up site by Vue Js.
+## Project Details: 
 where user can Do a couple of things:
    1. create a new account,
    2. Sign up from His/Her account.
@@ -9,10 +10,17 @@ where user can Do a couple of things:
    4. Manage his/her meetup (Edit/Delete)
 
 
-Backend Use for this project:
+## Backend for this project:
   1. Firebase
+  
+## Dependencies: 
+  1. vue-router
+
+  2. vuetify
+
+  3. vuex (store)
  
- 
+
 
 ## Build Setup
 
