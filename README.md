@@ -10,17 +10,6 @@ where user can Do a couple of things:
    4. Manage his/her meetup (Edit/Delete)
 
 
-## Backend for this project:
-  1. Firebase
-  
-## Dependencies: 
-  1. vue-router
-
-  2. vuetify
-
-  3. vuex (store)
- 
-
 
 ## Build Setup
 
@@ -42,4 +31,21 @@ npm run build
 npm run build --report
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## programming language used in this project: 
+   JavaScript<br>
+## The framework used for this project:<br>
+   Vue
+## Vue cli library:
+   `"@firebase/firestore","ajv","Vuetify","firebase","vue","vue-router","vuex"`
+   For more details check package.json file.
+## BackEnd used :
+  Firebase
+## Thanks to all:
+  Hope you all enjoy my project. <br>If you have any suggestion I really appreciate you. Please Just Let me know about it.
+  You can mail me at:
+  hasanuzzamanbe@gmail.com
+  
+  or
+  
+  Facebook:
+  https://www.facebook.com/shamim0902
