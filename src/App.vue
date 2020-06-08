@@ -50,56 +50,57 @@
 </template>
 <script>
 import * as firebase from 'firebase'
-    export default {
-        data () {
-            return {
-                sideNav: false,
-                profile: 'Profile'
-            }
-        },
-        computed: {
-            menuItems () {
-                let menuItems = [
-                    {icon: 'face', title: 'Sign in', link: '/signin'},
-                    {icon: 'lock_open', title: 'Sign up', link: '/signup'}
+export default {
+    data () {
+        return {
+            sideNav: false,
+            profile: 'Profile'
+        }
+    },
+    computed: {
+        menuItems () {
+            let menuItems = [
+                {icon: 'face', title: 'Sign in', link: '/signin'},
+                {icon: 'lock_open', title: 'Sign up', link: '/signup'}
+            ]
+            if (this.userIsAuthenticated) {
+                menuItems = [
+                    {icon: 'supervisor_account', title: 'View Meetups', link: '/meetups'},
+                    {icon: 'room', title: 'Organize Meetup', link: '/meetup/new'},
+                    {icon: 'person', title: this.username, link: '/profile'}
                 ]
-                if (this.userIsAuthenticated) {
-                    menuItems = [
-                        {icon: 'supervisor_account', title: 'View Meetups', link: '/meetups'},
-                        {icon: 'room', title: 'Organize Meetup', link: '/meetup/new'},
-                        {icon: 'person', title: this.username, link: '/profile'}
-                    ]
-                }
-                return menuItems
-            },
-            userIsAuthenticated () {
-                return this.$store.getters.user !== null && this.$store.getters.user !== undefined
-            },
-            username () {
-                return this.$store.getters.user.displayName
             }
+            return menuItems
         },
-        methods: {
-          onLogout () {
+        userIsAuthenticated () {
+            return this.$store.getters.user !== null && this.$store.getters.user !== undefined
+        },
+        username () {
+            return this.$store.getters.user.displayName
+        }
+    },
+    methods: {
+        onLogout () {
             this.$store.dispatch('logout')
-          },
-          UserName () {
+        },
+        UserName () {
             if (this.$store.getters.user !== null && this.$store.getters.user !== undefined) {
-              var user = firebase.auth().currentUser
-              return this.profile = user.providerData[0].displayName
+                var user = firebase.auth().currentUser
+                this.profile = user.providerData[0].displayName
+                return this.profile
             }
-          }
-        },
-        created: function () {
+        }
+    },
+    created: function () {
+        this.UserName()
+    },
+    updated: function () {
+        this.$nextTick(function () {
             this.UserName()
-        },
-        updated: function () {
-            this.$nextTick(function () {
-              this.UserName()
-          })
-        },
-        name: 'App'
-    }
+        })
+    },
+    name: 'App'
+}
 </script>
 <style type="text/css" scoped>
     #check {
